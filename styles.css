@@ -1,0 +1,352 @@
+
+/* Reset básico para remover margens e paddings padrão de todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+/* Estilos do corpo da página: fundo gradiente, fonte, centralização */
+body {
+    background: linear-gradient(180deg, #020818 0%, #0A1628 100%);
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    min-height: 100vh;
+}
+
+/* Fontes específicas para títulos */
+h1, h2 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Layout principal: grid com duas colunas, oculto inicialmente */
+main {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+/* Container principal: fundo, bordas, sombras, responsivo */
+.container {
+    background: linear-gradient(180deg, #0d1f3c 0%, #1a2f50 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.5),
+        0 0 80px rgba(10, 30, 80, 0.4),
+        0 2px 4px rgba(255, 255, 255, 0.05) inset;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 40px;
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    min-height: 100%;
+}
+
+/* Seção de entrada: fundo, bordas, layout flex */
+#input-section {
+    background: rgba(10, 20, 50, 0.4);
+    border: 1px solid rgba(100, 160, 255, 0.15);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Seção de saída: fundo, bordas, layout flex */
+#output-section {
+    background: rgba(0, 255, 135, 0.04);
+    border: 1px solid rgba(0, 255, 135, 0.12);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Parágrafo de código: cor verde, fonte monoespaçada, alinhamento à esquerda */
+.code-paragraph {
+    color: #00FF87;
+    white-space: pre-wrap; /* respeita espaços e quebras dentro do p */
+    font-family: monospace;
+    text-align: left;
+}
+
+/* Título principal: gradiente de texto, tamanho grande */
+h1 {
+    background: linear-gradient(135deg, #7EB8FF 0%, #FFFFFF 50%, #A78BFA 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+    font-size: 2rem;
+}
+
+/* Classe para ícone no título: cor normal */
+h1 .icone {
+    -webkit-text-fill-color: initial;
+    color: initial;
+}
+
+/* Classe para destaque no título: cor verde, sombra */
+h1 .destaque {
+    -webkit-text-fill-color: #00FF87;
+    background: none;
+    text-shadow: 0 0 12px rgba(0, 255, 135, 0.5);
+}
+
+/* Parágrafos: cor azul clara, espaçamento */
+p {
+    color: #B8D0E8;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+/* Textarea: fundo escuro, bordas, padding, transições */
+textarea {
+    background: rgba(10, 20, 45, 0.6);
+    color: #B8D0E8;
+    font-size: 18px;
+    border: 1px solid rgba(100, 160, 255, 0.2);
+    border-radius: 10px;
+    padding: 14px 16px;
+    width: 100%;
+    height: 350px;
+    resize: none;
+    outline: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    scrollbar-width: thin;
+    scrollbar-color: #2D5AA0 transparent;
+}
+
+/* Placeholder do textarea: cor e tamanho */
+textarea::placeholder {
+    color: #5A8AAA;
+    font-size: 18px;
+}
+
+/* Foco no textarea: mudança de borda e sombra */
+textarea:focus {
+    border-color: rgba(100, 160, 255, 0.6);
+    background: rgba(10, 20, 55, 0.8);
+    box-shadow:
+        0 0 20px rgba(45, 90, 160, 0.3),
+        0 0 0 3px rgba(74, 127, 212, 0.1);
+}
+
+/* Labels: cor, tamanho, maiúsculo */
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #7EB8FF;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Margem específica para label de output */
+#label-output {
+    margin-bottom: 16px;
+}
+
+/* Margem específica para label de prompt */
+#label-prompt {
+    margin-bottom: 16px;
+}
+
+/* Div de output: fundo, bordas, cor, fonte, overflow */
+#output {
+    background: rgba(5, 10, 30, 0.6);
+    border: 1px solid rgba(100, 160, 255, 0.1);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: #00FF87;
+    font-family: monospace;
+    font-size: 14px;
+    flex: 1;
+    min-height: 300px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* Seção de preview: fundo, bordas, layout flex */
+#preview-section {
+    background: rgba(20, 10, 50, 0.4);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 300px;
+    overflow: hidden;
+}
+
+/* Box do preview: fundo, bordas, layout flex, overflow */
+#preview-box {
+    background: rgba(5, 10, 30, 0.6);
+    border: 1px solid rgba(167, 139, 250, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 6px;
+    min-height: 400px;
+    max-height: 600px;
+}
+
+/* Iframe do preview: ocupa todo o espaço, sem bordas */
+#preview-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Botão: gradiente, bordas, transições, sombra */
+button {
+    display: block;
+    margin: 20px auto 0;
+    background: linear-gradient(135deg, #1E3A6E 0%, #2D5AA0 100%);
+    color: #E8F4FF;
+    border: 1px solid rgba(100, 160, 255, 0.3);
+    border-radius: 8px;
+    padding: 12px 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(45, 90, 160, 0.4);
+    font-size: 1rem;
+}
+
+/* Hover do botão: mudança de gradiente, sombra, elevação */
+button:hover {
+    background: linear-gradient(135deg, #2D5AA0 0%, #4A7FD4 100%);
+    box-shadow: 0 6px 30px rgba(74, 127, 212, 0.6);
+    transform: translateY(-2px);
+}
+
+/* ── Tablet (até 1024px) ── */
+@media (max-width: 1024px) {
+    .container {
+        width: 80%;
+        padding: 32px;
+    }
+}
+
+/* ── Tablet pequeno (até 768px) ── */
+@media (max-width: 768px) {
+    body {
+        align-items: flex-start;
+    }
+
+    .container {
+        width: 100%;
+        border-radius: 0;
+        padding: 24px 20px;
+        min-height: 100vh;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    textarea {
+        height: 150px;
+    }
+
+    #output, #preview-box {
+        height: 300px;
+    }
+}
+
+/* ── Mobile (até 480px) ── */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 16px;
+    }
+
+    h1 {
+        font-size: 1.25rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+    }
+
+    textarea {
+        font-size: 16px;
+        height: 120px;
+    }
+
+    textarea::placeholder {
+        font-size: 16px;
+    }
+
+    #output , #preview-box {
+        height: 250px;
+        font-size: 13px;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+    }
+}
+
+/* ── Telas muito pequenas (até 320px) ── */
+@media (max-width: 320px) {
+    .container {
+        padding: 16px 12px;
+    }
+
+    h1 {
+        font-size: 1.1rem;
+    }
+
+    p {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+
+    textarea {
+        height: 100px;
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    textarea::placeholder {
+        font-size: 14px;
+    }
+
+    #output, #preview-box {
+        height: 200px;
+        font-size: 12px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    label {
+        font-size: 0.8rem;
+    }
+}
