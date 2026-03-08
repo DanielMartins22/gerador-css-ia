@@ -63,6 +63,9 @@ async function generateCode() {
     codegerate.textContent = filterDados
     // Define o srcdoc do iframe com o código para preview
     resultCode.srcdoc = filterDados
+
+    // Garante que o foco volte ao botão para evitar problemas de clique duplo
+    buttonGenerate.focus()
 }
 
 // Adiciona evento de clique ao botão para chamar a função generateCode

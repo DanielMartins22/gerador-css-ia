@@ -260,8 +260,17 @@ button:hover {
     }
 
     main {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 16px;
+    }
+
+    #preview-section {
+        order: 2;
+    }
+
+    #output-section {
+        order: 1;
     }
 
     h1 {
