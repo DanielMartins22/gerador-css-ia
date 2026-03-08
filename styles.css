@@ -1,4 +1,3 @@
-
 /* Reset básico para remover margens e paddings padrão de todos os elementos */
 * {
     margin: 0;
@@ -15,20 +14,30 @@ body {
     background: linear-gradient(180deg, #020818 0%, #0A1628 100%);
     font-family: 'Inter', sans-serif;
     color: #333;
+    width: 100%;
     min-height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Fontes específicas para títulos */
-h1, h2 {
+h1,
+h2 {
     font-family: 'Space Grotesk', sans-serif;
 }
 
 /* Layout principal: grid com duas colunas, oculto inicialmente */
 main {
-    display: none;
-    grid-template-columns: 1fr 1fr;
+    display: none; /* inicialmente oculto */
+    grid-template-columns: 1fr 2fr;
     gap: 24px;
     margin-top: 24px;
+}
+
+main.show {
+    display: grid;
 }
 
 /* Container principal: fundo, bordas, sombras, responsivo */
@@ -72,7 +81,8 @@ main {
 /* Parágrafo de código: cor verde, fonte monoespaçada, alinhamento à esquerda */
 .code-paragraph {
     color: #00FF87;
-    white-space: pre-wrap; /* respeita espaços e quebras dentro do p */
+    white-space: pre-wrap;
+    /* respeita espaços e quebras dentro do p */
     font-family: monospace;
     text-align: left;
 }
@@ -260,17 +270,16 @@ button:hover {
     }
 
     main {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: 1fr;
         gap: 16px;
     }
 
     #preview-section {
-        order: 2;
+        grid-row: 1;
     }
 
     #output-section {
-        order: 1;
+        grid-row: 2;
     }
 
     h1 {
@@ -281,7 +290,8 @@ button:hover {
         height: 150px;
     }
 
-    #output, #preview-box {
+    #output,
+    #preview-box {
         height: 300px;
     }
 }
@@ -309,7 +319,8 @@ button:hover {
         font-size: 16px;
     }
 
-    #output , #preview-box {
+    #output,
+    #preview-box {
         height: 250px;
         font-size: 13px;
     }
@@ -345,7 +356,8 @@ button:hover {
         font-size: 14px;
     }
 
-    #output, #preview-box {
+    #output,
+    #preview-box {
         height: 200px;
         font-size: 12px;
     }
