@@ -18,6 +18,7 @@ async function generateCode() {
     // Torna o main visível (grid) após o clique
     const main = document.querySelector('main')
     main.style.display = 'grid'
+    main.style.gridTemplateColumns = '1fr 2fr' // Faz a coluna do preview duas vezes maior
 
     // Faz a requisição para a API Groq
     let response = await fetch(address, {
@@ -46,15 +47,19 @@ async function generateCode() {
     // Extrai o conteúdo da mensagem gerada
     let filterDados = dados.choices[0].message.content
 
-    // Adiciona estilos de centralização ao CSS gerado para evitar elementos no canto
+    // Obtém o tamanho do iframe
+    let iframeWidth = resultCode.style.width || '200px';
+    let iframeHeight = resultCode.style.height || '200px';
+
+    // Adiciona estilos para que o body tenha o mesmo tamanho do iframe e centralize os elementos
     if (filterDados.includes('<style>')) {
-        filterDados = filterDados.replace('<style>', '<style>html { height: 100%; } body { display: flex; justify-content: center; align-items: center; height: 100%; width: 100%; margin: 0; }');
+        filterDados = filterDados.replace('<style>', '<style>body { width: 100%; height: 100%; margin: 0; display: flex; justify-content: center; align-items: center; overflow: hidden; }');
     } else {
         // Se não houver <style>, adiciona um
-        filterDados = '<style>html { height: 100%; } body { display: flex; justify-content: center; align-items: center; height: 100%; width: 100%; margin: 0; }</style>' + filterDados;
+        filterDados = '<style>body { width: 100%; height: 100%; margin: 0; display: flex; justify-content: center; align-items: center; overflow: hidden; }</style>' + filterDados;
     }
 
-    // Exibe o código gerado no parágrafo (agora com centralização)
+    // Exibe o código gerado no parágrafo
     codegerate.textContent = filterDados
     // Define o srcdoc do iframe com o código para preview
     resultCode.srcdoc = filterDados
